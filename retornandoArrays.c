@@ -17,10 +17,10 @@ int main(void){
     return 0;
 }
  1) ese array va a estar guardado en una variable local, que luego de la ejecucion de la funcion,
-se limpia, por lo tanto, se estaría retornando el puntero, que tiene una dirección de memoria
+se limpia o sobreescribe, por lo tanto, se estaría retornando el puntero, que tiene una dirección de memoria
 correspondiente a la memoria Stack. Es ilegal acceder a esta fuera del scope de la funcion en sí.
-Además luego de la ejecución de esa función, se limpia.
-2) los array son inmutables, no se modifican, se puede cambiar valor por valor, pero no por asignacion
+Además luego de la ejecución de esa función, se sobreescribe esa region con otros valores cuando se la vuelve a llamar.
+2) los array son inmutables, no se modifican, se puede cambiar valor por valor, pero no por asignacion.
 3) Ademas se está tratando de asignar un puntero a un array, lo cual en sí no tiene sentido.
 */
 
@@ -74,7 +74,8 @@ la función para luego retornarlo.
 2- El malloc, como es allocacion de memoria dinamicamente,
  reservará memoria en la memoria **Heap**.
 3- Cada funcion resultará en un nuevo buffer, que va a ser diferente ante cada llamado. (pro)
-4- Desemboca en fallas de Gestión de memoria si se gestiona mal la memoria dinamicamente.
+4- Desemboca en fallas de Gestión de memoria si se gestiona mal la memoria dinamicamente. El caller tiene que recordar
+liberar la memoria.
     - Se puede liberar memoria que está siendo utilizada.
     - Pérdida de memoria, ya no está en uso pero queda la basura ahi de los valores viejos.
 */
@@ -133,9 +134,11 @@ int main(void){
     //forma 5
     int size= 100;
     char *buffer = malloc(size);
-    forma_5(buffer,size);
-    printf("%s\n",buffer);
-    free(buffer);
+    if (buffer){
+        forma_5(buffer,size);
+        printf("%s\n",buffer);
+        free(buffer);
+    }
     
     return 0;
 }

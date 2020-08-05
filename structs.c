@@ -7,22 +7,18 @@ struct Persona{
     char nombre[20];
 } typedef Persona;
 
-/* Otra forma de definir lo mismo 
-typedef struct Persona{
+/* Otra forma de definir lo mismo */
+typedef struct Perro{
     int edad;
     char nombre[20];
-} Persona;
+} Perro;
 
-o sino
+// o sino
 
-struct Persona{
+struct {
     int edad;
     char nombre[20];
-};
-
-typdedef struct Persona Persona;
-*/
-
+} typedef Gato;
 
 int main(){
     printf("Structs!\n");
@@ -30,5 +26,12 @@ int main(){
     santu.edad=31;
     strcpy( santu.nombre, "santu");
     printf("Mi nombre es %s y mi edad es de %i\n",santu.nombre,santu.edad);
+
+    printf("\n-------------------------\n");
+    Gato gatito;
+    gatito.edad=58;
+    strncpy(gatito.nombre,"michi",20);
+    printf("Mi nombre es %s y mi edad es de %i\n",gatito.nombre,gatito.edad);
+
     return 0;
 }
