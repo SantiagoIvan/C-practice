@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct Box{
+    struct Box *next;
+    int id;
+} Box;
+
 int main(){
 
     int age= 30;
@@ -35,5 +40,15 @@ int main(){
 
     printf("\n--------------------------------------\n");
     printf("Tamaño de un puntero: %lu bytes.\n",sizeof(agePointer));
+
+    Box *raiz=NULL;
+    //reservo memoria del tamaño del struct. Lo casteo a un putero de tipo Box
+    raiz= (Box*) malloc(sizeof(Box));
+    raiz->id=1;
+    raiz->next=NULL;
+    printf("%i\n",(*raiz).id);//lo mismo, *raiz accedo a la struct en sí, para acceder al atributo es con .
+    
+    raiz->id=2;
+    printf("%i\n",raiz->id);
     return 0;
 }

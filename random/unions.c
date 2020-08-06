@@ -74,9 +74,12 @@ int main(void){
     printf("Tipo: %lu\n",sizeof(p.tipo_asignado_actualmente));
     printf("Valor: %lu\n",sizeof(p.valor)); 
     printf("El tamaño de Pseudo_Polimorfismo es de: %lu\n", sizeof(Pseudo_Polimorfismo));
-    // TODO: Por que no me da 12?!?!!?!
+    // Por que no me da 12?!?!!?!
     /*
-    Aparentemente depende del compilador. Con el trucazo de PRAGMA da bien. Es un tema de configuracion del compilador.
+    Por una cuestión de padding de la memoria cuando se almacena el struct,
+    por eso, el tamaño del struct va a ser como MÍNIMO tan grande como la suma
+    de tamaños de sus campos. El compilador agrega bytes de alineamiento cuando almacena el struct
+    por temas de performance del procesador cuando accede a estos datos. TODO
     */
     return 0;
 }
