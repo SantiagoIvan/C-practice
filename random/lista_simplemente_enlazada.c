@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "sort_algorithms.c"
 
 typedef struct Box{
     struct Box *next;

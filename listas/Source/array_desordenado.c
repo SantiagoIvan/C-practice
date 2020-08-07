@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "sort_algorithms.c"
+#include "bubblesort.c"
 
 void mostrar_array(int *array,int size){
     printf("Mostrando array ...\n");

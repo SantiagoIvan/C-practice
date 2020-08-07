@@ -46,6 +46,7 @@ Box* bubblesort_ordenar_lista(Box *raiz, int size){
                 if(actual->id > siguiente->id ){
                     //swapeo:
                     if(anterior==NULL){
+                        //si estoy en el primer nodo, voy a tener que cambiar la raiz
                         actual->next=siguiente->next;
                         siguiente->next=actual;
                         raiz=siguiente;
@@ -63,10 +64,10 @@ Box* bubblesort_ordenar_lista(Box *raiz, int size){
                     }
                 }else
                 {
-                    //no swapeo nada
+                    //no swapeo nada, no se cumple la condicion.
                     actual=actual->next;
                     siguiente=siguiente->next;
-                    if(anterior==NULL){
+                    if(anterior==NULL){//por si estoy en la raiz
                         anterior=raiz;
                     }else{
                         anterior=anterior->next;
