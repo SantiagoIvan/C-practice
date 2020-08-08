@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct Box{
-    struct Box *next;
-    int id;
-} Box;
-void mostrar_list(Box *raiz){
+#include "utils.c"
+
+void mostrar_lista(Box *raiz){
     printf("\nImprimiendo Lista...\n");
     while (raiz)
     {

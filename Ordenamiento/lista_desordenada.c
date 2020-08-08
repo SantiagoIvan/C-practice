@@ -38,15 +38,6 @@ Box* inicializar_lista(){
     return e1;
 }
 
-void mostrar_lista(Box *raiz){
-    printf("\nImprimiendo Lista...\n");
-    while (raiz)
-    {
-        printf("Elemento: %i\n",raiz->id);
-        raiz=raiz->next;
-    }
-    return;
-}
 
 
 int main(void){
